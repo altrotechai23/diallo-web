@@ -148,7 +148,7 @@ export default function Header() {
               items-center
               justify-center
               rounded-full
-              bg-[rgb(var(--muted))]
+              bg-white
               lg:hidden
             "
             aria-label={
