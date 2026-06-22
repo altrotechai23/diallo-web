@@ -148,7 +148,7 @@ export default function Footer() {
               <li>
                 Open Daily
                 <br />
-                08:00 – 18:00
+                08:00 – 20:00
               </li>
             </ul>
           </div>

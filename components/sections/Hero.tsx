@@ -90,7 +90,7 @@ export default function Hero() {
             md:text-7xl
           "
         >
-          Laundry that feels
+          Laundry that feels effortless
           <br />
 
           <span
@@ -102,7 +102,7 @@ export default function Hero() {
               text-transparent
             "
           >
-            effortless.
+            Diallo Laundry
           </span>
         </h1>
 
