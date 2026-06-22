@@ -53,7 +53,7 @@ export default function HowItWorks() {
           </p>
 
           <h2 className="heading-lg mt-4">
-            Laundry made simple. <br /> <span
+          <span
             className="
               bg-gradient-to-r
               from-[#41BE23]
@@ -64,6 +64,8 @@ export default function HowItWorks() {
           >
             Diallo Laundry
           </span>
+          <br />
+            Laundry made simple.  
           </h2>
 
           <p

@@ -18,7 +18,7 @@ export default function Reviews() {
           </p>
 
           <h2 className="heading-lg mt-4">
-            Trusted by our customers. <br /> <span
+            <span
             className="
               bg-gradient-to-r
               from-[#41BE23]
@@ -28,7 +28,10 @@ export default function Reviews() {
             "
           >
             Diallo Laundry
+            
           </span>
+          <br />
+          Trusted by our customers. 
           </h2>
 
           <p className="mt-6 text-lg text-muted"> Real feedback from people who trust Diallo Laundry with their garments.</p>
