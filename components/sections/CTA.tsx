@@ -39,8 +39,7 @@ export default function CTA() {
               md:text-5xl
             "
           >
-            Let us take laundry
-            off your to-do list. <br /> <span
+            <span
             className="
               bg-gradient-to-r
               from-[#41BE23]
@@ -51,6 +50,9 @@ export default function CTA() {
           >
             Diallo Laundry
           </span>
+          <br />
+            Let us take laundry
+            off your to-do list. 
           </h2>
 
           <p
