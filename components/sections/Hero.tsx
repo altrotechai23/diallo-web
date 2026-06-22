@@ -90,9 +90,6 @@ export default function Hero() {
             md:text-7xl
           "
         >
-          Laundry that feels effortless
-          <br />
-
           <span
             className="
               bg-gradient-to-r
@@ -102,8 +99,13 @@ export default function Hero() {
               text-transparent
             "
           >
-            Diallo Laundry
+            Diallo Laundry.
           </span>
+           <br />
+          Laundry that feels effortless
+         
+
+          
         </h1>
 
         {/* Subheadline */}
