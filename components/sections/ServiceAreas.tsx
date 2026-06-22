@@ -48,6 +48,17 @@ export default function ServiceAreas() {
 
           <h2 className="heading-lg mt-4">
             Serving Cape Town s busiest neighbourhoods.
+            <br /> <span
+            className="
+              bg-gradient-to-r
+              from-[#41BE23]
+              to-[#00A3FF]
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Diallo Laundry
+          </span>
           </h2>
 
           <p

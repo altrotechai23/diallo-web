@@ -80,7 +80,17 @@ export default function ServicesPage() {
               </p>
 
               <h1 className="heading-lg mt-4">
-                Laundry services designed around your life.
+                Laundry services designed around your life. <br /> <span
+            className="
+              bg-gradient-to-r
+              from-[#41BE23]
+              to-[#00A3FF]
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Diallo Laundry
+          </span>
               </h1>
 
               <p

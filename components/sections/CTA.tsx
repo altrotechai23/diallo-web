@@ -40,7 +40,17 @@ export default function CTA() {
             "
           >
             Let us take laundry
-            off your to-do list.
+            off your to-do list. <br /> <span
+            className="
+              bg-gradient-to-r
+              from-[#41BE23]
+              to-[#00A3FF]
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Diallo Laundry
+          </span>
           </h2>
 
           <p
