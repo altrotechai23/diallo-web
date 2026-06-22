@@ -110,7 +110,17 @@ export default function Footer() {
 
             <ul className="mt-5 space-y-4 text-muted">
               <li>
-                Africa Mall
+                <span
+            className="
+              bg-gradient-to-r
+              from-[#41BE23]
+              to-[#00A3FF]
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Diallo Laundry.
+          </span>
                 <br />
                 98 Long Street
                 <br />
