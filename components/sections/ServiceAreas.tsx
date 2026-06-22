@@ -141,7 +141,7 @@ export default function ServiceAreas() {
           </p>
 
           <p className="mt-6 text-lg font-medium">
-            Open Daily • 08:00 – 18:00
+            Open Daily • 08:00 – 20:00
           </p>
         </div>
       </div>
