@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+:root {
+  /* Diallo Logo Colors */
+  --primary: 0 103 177;        /* Logo Blue */
+  --secondary: 65 190 35;      /* Logo Green */
+
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+
+  --muted: 248 250 252;
+  --muted-foreground: 100 116 139;
+
+  --border: 226 232 240;
+
+  --radius: 1.5rem;
+
+  --shadow-soft: 0 8px 24px rgba(0, 103, 177, 0.08);
+  --shadow-hover: 0 20px 40px rgba(0, 103, 177, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+
+  background: rgb(var(--background));
+
+  color: rgb(var(--foreground));
+
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Containers */
+
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Typography */
+
+.heading-lg {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.heading-md {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.text-muted {
+  color: rgb(var(--muted-foreground));
+}
+
+/* Cards */
+
+.card-premium {
+  background: white;
+
+  border: 1px solid rgb(var(--border));
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow-soft);
+
+  transition: all 0.3s ease;
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-hover);
+}
+
+/* Sections */
+
+.section-muted {
+  background: rgb(var(--muted));
+}
+
+/* Buttons */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  background: rgb(var(--primary));
+
+  color: white;
+
+  border-radius: 9999px;
+
+  padding: 0.95rem 1.75rem;
+
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  background: white;
+
+  color: rgb(var(--primary));
+
+  border: 1px solid rgb(var(--border));
+
+  border-radius: 9999px;
+
+  padding: 0.95rem 1.75rem;
+
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: rgb(var(--muted));
+}
+
+.btn-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgb(var(--secondary));
+
+  color: white;
+
+  border-radius: 9999px;
+
+  padding: 0.95rem 1.75rem;
+
+  font-weight: 600;
+}
