@@ -51,7 +51,7 @@ export default function WhyChoose() {
           </p>
 
           <h2 className="heading-lg mt-4">
-            Care you can trust. <br /> <span
+            <span
             className="
               bg-gradient-to-r
               from-[#41BE23]
@@ -62,6 +62,8 @@ export default function WhyChoose() {
           >
             Diallo Laundry
           </span>
+          <br />
+          Care you can trust.  
           </h2>
 
           <p
