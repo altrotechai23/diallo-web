@@ -144,7 +144,17 @@ export default function ServiceAreas() {
           </p>
 
           <h3 className="mt-4 text-2xl font-semibold">
-            Africa Mall, 98 Long Street
+            <span
+            className="
+              bg-gradient-to-r
+              from-[#41BE23]
+              to-[#00A3FF]
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Diallo Laundry
+          </span><br />Africa Mall, 98 Long Street
           </h3>
 
           <p className="mt-3 text-muted">

@@ -31,7 +31,17 @@ export default function Footer() {
 
               <div>
                 <h3 className="text-lg font-bold">
-                  Diallo Laundry
+                  <span
+            className="
+              bg-gradient-to-r
+              from-[#41BE23]
+              to-[#00A3FF]
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Diallo Laundry
+          </span>
                 </h3>
 
                 <p className="text-sm text-muted">
