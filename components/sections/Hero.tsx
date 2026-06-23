@@ -120,10 +120,8 @@ export default function Hero() {
             md:text-xl
           "
         >
-          Premium laundry and dry cleaning with free pickup and
+          Affordable Premium laundry and dry cleaning with free pickup and
           delivery across Long Street and Cape Town CBD.
-          Trusted care for professionals, families, Airbnb hosts,
-          and local businesses.
         </p>
 
         {/* CTA Buttons */}

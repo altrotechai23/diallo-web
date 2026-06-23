@@ -9,6 +9,7 @@ import {
   X,
   Phone,
   MessageCircle,
+  ArrowRight,
 } from "lucide-react";
 
 const navigation = [
@@ -30,76 +31,228 @@ export default function Header() {
     };
   }, [isOpen]);
 
-
   return (
-    <header
-      className="
-        sticky
-        top-0
-        z-50
-        border-b
-        border-[rgba(var(--border),0.5)]
-        bg-white/90
-        backdrop-blur-xl
-      "
-    >
-      <div className="container-custom">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link
-            onClick={() => setIsOpen(false)}
-            href="/"
-            className="flex items-center gap-3 shrink-0"
-          >
-            <Image
-              src="/images/logo.jpeg"
-              alt="Diallo Laundry"
-              width={52}
-              height={52}
-              priority
-              className="h-12 w-12 object-contain"
-            />
+    <>
+      {/* Header */}
+      <header
+        className={`
+          sticky top-0 z-50 transition-all duration-300
+          border-b border-[rgba(var(--border),0.5)]
+          ${
+            isOpen
+              ? "bg-white shadow-lg"
+              : "bg-white/90 backdrop-blur-xl shadow-sm"
+          }
+        `}
+      >
+        <div className="container-custom px-4 md:px-6">
+          <div className="flex h-20 items-center justify-between">
+            {/* Logo */}
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 shrink-0"
+            >
+              <Image
+                src="/images/logo.jpeg"
+                alt="Diallo Laundry"
+                width={52}
+                height={52}
+                priority
+                className="h-20 w-20 object-contain"
+              />
 
-            <div className="hidden sm:block leading-none">
-              <div
-                className="
-                  text-xl
-                  font-bold
-                  tracking-tight
-                  text-[rgb(var(--primary))]
-                "
-              >
-                Diallo Laundry
+              <div className="leading-none">
+                <div
+                  className="
+                    text-lg
+                    md:text-xl
+                    font-bold
+                    tracking-tight
+                    text-[rgb(var(--primary))]
+                  "
+                >
+                  Diallo Laundry
+                </div>
+
+                <div
+                  className="
+                    hidden sm:block
+                    mt-1
+                    text-xs md:text-sm
+                    text-[rgb(var(--muted-foreground))]
+                  "
+                >
+                  Premium Laundry • Cape Town
+                </div>
               </div>
+            </Link>
 
-              <div
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`
+                      relative
+                      text-sm
+                      font-medium
+                      transition-colors
+                      ${
+                        isActive
+                          ? "text-[rgb(var(--primary))]"
+                          : "text-slate-700 hover:text-[rgb(var(--primary))]"
+                      }
+                    `}
+                  >
+                    {item.name}
+
+                    <span
+                      className={`
+                        absolute
+                        -bottom-2
+                        left-0
+                        h-[2px]
+                        rounded-full
+                        bg-[rgb(var(--primary))]
+                        transition-all duration-300
+                        ${
+                          isActive
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }
+                      `}
+                    />
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center gap-3">
+              <a
+                href="https://wa.me/27631872533"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
-                  mt-1
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  bg-[rgb(var(--secondary))]
+                  px-5
+                  py-3
                   text-sm
-                  text-[rgb(var(--muted-foreground))]
+                  font-semibold
+                  text-white
+                  shadow-sm
+                  transition-all
+                  hover:-translate-y-0.5
+                  hover:shadow-md
                 "
               >
-                Premium Laundry • Cape Town
-              </div>
-            </div>
-          </Link>
+                <MessageCircle size={18} className="text-white"/>
+                <span className="text-white">WhatsApp</span>
+              </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navigation.map((item) => {
-              const isActive =
-                pathname === item.href;
+              <Link
+                href="/book"
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  bg-[rgb(var(--primary))]
+                  px-5
+                  py-3
+                  text-sm
+                  font-semibold
+                text-white
+                  shadow-sm
+                  transition-all
+                  hover:-translate-y-0.5
+                  hover:shadow-md
+                "
+              >
+                <span className="text-white">Book Pickup</span>
+
+                <ArrowRight size={16}  className="text-white"/>
+              </Link>
+            </div>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              className="
+                flex lg:hidden
+                h-11 w-11
+                items-center justify-center
+                rounded-full
+                border border-[rgb(var(--border))]
+                bg-white
+                shadow-sm
+                transition-all
+                hover:shadow-md
+              "
+            >
+              {isOpen ? (
+                <X size={22} />
+              ) : (
+                <Menu size={22} />
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer */}
+      <div
+        className={`
+          fixed inset-0 z-40 lg:hidden
+          bg-white
+          transition-all duration-300
+          ${
+            isOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }
+        `}
+      >
+        <div className="pt-24 px-8 pb-10 flex h-full flex-col justify-center">
+          {/* Navigation */}
+          <nav className="flex flex-col gap-8">
+            {navigation.map((item, idx) => {
+              const isActive = pathname === item.href;
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                   onClick={() => setIsOpen(false)}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-[rgb(var(--primary))]"
-                      : "text-slate-700 hover:text-[rgb(var(--primary))]"
-                  }`}
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    transitionDelay: `${idx * 50}ms`,
+                  }}
+                  className={`
+                    text-3xl
+                    font-semibold
+                    tracking-tight
+                    transition-all duration-300
+                    ${
+                      isOpen
+                        ? "translate-x-0 opacity-100"
+                        : "-translate-x-4 opacity-0"
+                    }
+                    ${
+                      isActive
+                        ? "text-[rgb(var(--primary))]"
+                        : "text-slate-800"
+                    }
+                  `}
                 >
                   {item.name}
                 </Link>
@@ -107,116 +260,34 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="https://wa.me/27631872533 "
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                btn-success
-                px-5
-                py-3
-                text-sm
-              "
-            >
-              <MessageCircle size={18} />
-
-              WhatsApp
-            </a>
-
-            <Link
-              href="/book"
-              className="
-                btn-primary
-                px-5
-                py-3
-                text-sm
-              "
-            >
-              Book Pickup
-            </Link>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-full
-              bg-white
-              lg:hidden
-            "
-            aria-label={
-              isOpen ? "Close menu" : "Open menu"
-            }
-          >
-            {isOpen ? (
-              <X size={22} />
-            ) : (
-              <Menu size={22} />
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-x-0 top-20 bottom-0 z-40 bg-white/95 backdrop-blur-xl px-8 py-10 transition-all duration-300 lg:hidden ${
-          isOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
-      >
-        <div className="flex h-full flex-col justify-between">
-          <nav className="flex flex-col gap-6">
-            {navigation.map((item, idx) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                style={{
-                  transitionDelay: `${idx * 40}ms`,
-                }}
-                className={`text-3xl font-semibold tracking-tight transition-all duration-300 ${
-                  isOpen
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-4 opacity-0"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-
+          {/* Actions */}
           <div
-            className={`border-t border-[rgba(var(--border),0.5)] pt-8 transition-all duration-500 ${
-              isOpen
-                ? "translate-y-0 opacity-100"
-                : "translate-y-4 opacity-0"
-            }`}
+            className={`
+              border-t border-[rgba(var(--border),0.5)]
+              pt-8
+              transition-all duration-500
+              ${
+                isOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-4 opacity-0"
+              }
+            `}
           >
             <div className="flex flex-col gap-3">
               <Link
                 href="/book"
                 onClick={() => setIsOpen(false)}
                 className="
-                  flex
-                  h-12
-                  items-center
-                  justify-center
+                  flex h-14 items-center justify-center gap-2
                   rounded-full
                   bg-[rgb(var(--primary))]
-                  text-sm
-                  font-semibold
-                  text-white
+                  text-base font-semibold text-white
+                  shadow-sm
                 "
               >
                 Book Pickup
+
+                <ArrowRight size={18} />
               </Link>
 
               <div className="grid grid-cols-2 gap-3">
@@ -225,41 +296,28 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    flex
-                    h-12
-                    items-center
-                    justify-center
-                    gap-2
+                    flex h-14 items-center justify-center gap-2
                     rounded-full
                     bg-[rgb(var(--secondary))]
-                    text-sm
-                    font-semibold
-                    text-white
+                    text-sm font-semibold text-white
                   "
                 >
-                  <MessageCircle size={16} />
-
+                  <MessageCircle size={18} />
                   WhatsApp
                 </a>
 
                 <a
                   href="tel:+27631872533"
                   className="
-                    flex
-                    h-12
-                    items-center
-                    justify-center
-                    gap-2
+                    flex h-14 items-center justify-center gap-2
                     rounded-full
-                    border
-                    border-[rgb(var(--border))]
+                    border border-[rgb(var(--border))]
                     bg-[rgb(var(--muted))]
-                    text-sm
-                    font-semibold
+                    text-sm font-semibold
+                    text-[rgb(var(--foreground))]
                   "
                 >
-                  <Phone size={16} />
-
+                  <Phone size={18} />
                   Call
                 </a>
               </div>
@@ -267,6 +325,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

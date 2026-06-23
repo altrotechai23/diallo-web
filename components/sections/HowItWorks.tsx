@@ -3,32 +3,33 @@ import {
   Truck,
   Sparkles,
   Home,
+  ArrowRight,
 } from "lucide-react";
 
 const steps = [
   {
     icon: CalendarCheck,
-    title: "Book",
+    title: "Book Your Pickup",
     description:
-      "Schedule your pickup online or through WhatsApp in less than a minute.",
+      "Schedule online or via WhatsApp in under 60 seconds. Choose a time that suits your lifestyle.",
   },
   {
     icon: Truck,
     title: "We Collect",
     description:
-      "Our team picks up your laundry from your home, office, or business.",
+      "Our driver picks up your laundry from your home, office, Airbnb, or business.",
   },
   {
     icon: Sparkles,
-    title: "We Clean",
+    title: "Expert Cleaning",
     description:
-      "Your garments receive professional care and attention to detail.",
+      "Every item is professionally cleaned, inspected, and treated with exceptional care.",
   },
   {
     icon: Home,
-    title: "We Deliver",
+    title: "Delivered Fresh",
     description:
-      "Fresh, folded, and ready to wear — delivered back to you.",
+      "Fresh, folded, and ready to wear — returned to your doorstep on time.",
   },
 ];
 
@@ -36,55 +37,122 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="section-muted"
+      className="
+        relative
+        overflow-hidden
+        bg-[rgb(var(--muted))]
+        py-24
+        md:py-32
+      "
     >
-      <div className="container-custom">
+      {/* Background Decoration */}
+      <div
+        className="
+          absolute
+          inset-0
+          pointer-events-none
+          opacity-40
+        "
+      >
+        <div
+          className="
+            absolute
+            -top-32
+            left-1/2
+            h-96
+            w-96
+            -translate-x-1/2
+            rounded-full
+            bg-[rgba(0,103,177,0.08)]
+            blur-3xl
+          "
+        />
+
+        <div
+          className="
+            absolute
+            bottom-0
+            right-0
+            h-72
+            w-72
+            rounded-full
+            bg-[rgba(65,190,35,0.08)]
+            blur-3xl
+          "
+        />
+      </div>
+
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <p
+          <div
             className="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-[rgb(var(--border))]
+              bg-white
+              px-5
+              py-2
               text-sm
               font-semibold
-              uppercase
-              tracking-[0.2em]
+              tracking-wide
               text-[rgb(var(--primary))]
+              shadow-sm
             "
           >
             How It Works
-          </p>
+          </div>
 
-          <h2 className="heading-lg mt-4">
-          <span
+          <h2
             className="
-              bg-gradient-to-r
-              from-[#41BE23]
-              to-[#00A3FF]
-              bg-clip-text
-              text-transparent
+              mt-8
+              text-4xl
+              font-bold
+              tracking-tight
+              text-[rgb(var(--foreground))]
+              md:text-6xl
             "
           >
-            Diallo Laundry
-          </span>
-          <br />
-            Laundry made simple.  
+            Laundry designed for
+            <br />
+
+            <span
+              className="
+                bg-gradient-to-r
+                from-[#41BE23]
+                to-[#00A3FF]
+                bg-clip-text
+                text-transparent
+              "
+            >
+              modern living.
+            </span>
           </h2>
 
           <p
             className="
+              mx-auto
               mt-6
+              max-w-2xl
               text-lg
-              text-muted
+              leading-8
+              text-[rgb(var(--muted-foreground))]
             "
           >
-            From pickup to delivery, we ve designed every step to save you time.
+            We take care of the laundry so you can focus on
+            work, family, and the moments that matter most.
           </p>
         </div>
 
+        {/* Steps */}
         <div
           className="
-            mt-16
+            relative
+            mt-20
             grid
-            gap-6
-            md:grid-cols-2
+            gap-8
             lg:grid-cols-4
           "
         >
@@ -95,53 +163,149 @@ export default function HowItWorks() {
               <div
                 key={step.title}
                 className="
-                  card-premium
+                  group
+                  relative
+                  rounded-[2rem]
+                  border
+                  border-white/60
+                  bg-white
                   p-8
-                  text-center
+                  shadow-sm
+                  transition-all
+                  duration-300
+                  hover:-translate-y-2
+                  hover:shadow-2xl
                 "
               >
+                {/* Connecting Line */}
+                {index < steps.length - 1 && (
+                  <div
+                    className="
+                      absolute
+                      top-12
+                      left-full
+                      hidden
+                      h-[2px]
+                      w-8
+                      bg-gradient-to-r
+                      from-[rgb(var(--primary))]
+                      to-[rgb(var(--secondary))]
+                      lg:block
+                    "
+                  />
+                )}
+
+                {/* Step Number */}
                 <div
                   className="
-                    mx-auto
+                    absolute
+                    right-6
+                    top-6
+                    text-5xl
+                    font-bold
+                    text-slate-100
+                    transition-colors
+                    group-hover:text-slate-200
+                  "
+                >
+                  0{index + 1}
+                </div>
+
+                {/* Icon */}
+                <div
+                  className="
                     flex
                     h-16
                     w-16
                     items-center
                     justify-center
                     rounded-2xl
-                    bg-[rgb(var(--muted))]
-                    text-[rgb(var(--primary))]
+                    bg-gradient-to-br
+                    from-[rgb(var(--primary))]
+                    to-[rgb(var(--secondary))]
+                    text-white
+                    shadow-lg
                   "
                 >
-                  <Icon size={28} />
+                  <Icon size={30} />
                 </div>
 
-                <p
+                <h3
                   className="
-                    mt-6
-                    text-sm
+                    mt-8
+                    text-2xl
                     font-semibold
-                    text-[rgb(var(--secondary))]
+                    text-[rgb(var(--foreground))]
                   "
                 >
-                  Step {index + 1}
-                </p>
-
-                <h3 className="mt-2 text-xl font-semibold">
                   {step.title}
                 </h3>
 
                 <p
                   className="
                     mt-4
-                    text-muted
+                    leading-7
+                    text-[rgb(var(--muted-foreground))]
                   "
                 >
                   {step.description}
                 </p>
+
+                {/* Learn More */}
+                <div
+                  className="
+                    mt-8
+                    inline-flex
+                    items-center
+                    gap-2
+                    text-sm
+                    font-semibold
+                    text-[rgb(var(--primary))]
+                  "
+                >
+                  Simple & Convenient
+
+                  <ArrowRight
+                    size={16}
+                    className="
+                      transition-transform
+                      group-hover:translate-x-1
+                    "
+                  />
+                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Trust Statement */}
+        <div
+          className="
+            mt-20
+            rounded-[2rem]
+            bg-gradient-to-r
+            from-[rgb(var(--primary))]
+            to-[rgb(var(--secondary))]
+            px-8
+            py-10
+            text-center
+            text-white
+            shadow-xl
+          "
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+            Trusted Across Cape Town
+          </p>
+
+          <h3 className="mt-3 text-3xl font-bold md:text-4xl">
+            More time for what matters.
+          </h3>
+
+          <p className="mx-auto mt-4 max-w-2xl text-white/90">
+            Join busy professionals, families, Airbnb hosts, and local businesses
+            who trust Diallo Laundry for reliable pickup, expert cleaning,
+            and doorstep delivery.
+          </p>
         </div>
       </div>
     </section>
