@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-
+import Script from 'next/script';
 import "./globals.css";
 import WhatsAppFloat from "@/components/common/WhatsAppFloat";
 
@@ -190,6 +190,22 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* 1. Load the external Google Tag script asynchronously */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18265948639"
+          strategy="afterInteractive"
+        />
+
+        {/* 2. Initialize the Google Ads configuration */}
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-18265948639');
+          `}
+        </Script>
         <GoogleAnalytics gaId="G-46VZ6EE43Q"  />
       </body>
     </html>
