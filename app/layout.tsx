@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     description:
       "Free pickup and delivery across Cape Town.",
 
-    images: ["/images/og-image.jpg"],
+    images: ["/images/og-image.jpeg"],
   },
 
   category: "Laundry Services",
