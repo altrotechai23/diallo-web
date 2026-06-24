@@ -20,98 +20,126 @@ const poppins = Poppins({
 
 const siteUrl = "https://diallolaundry.co.za";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  export const metadata: Metadata = {
+    metadataBase: new URL(siteUrl),
 
-  title: {
-    default:
-      "Diallo Laundry | Premium Laundry & Dry Cleaning in Cape Town",
-    template: "%s | Diallo Laundry",
-  },
-
-  description:
-    "Premium laundry and dry cleaning services in Cape Town. Free pickup and delivery from Long Street and surrounding areas. Book online or WhatsApp Diallo Laundry today.",
-
-  keywords: [
-    "laundry cape town",
-    "dry cleaning cape town",
-    "laundry service cape town",
-    "dry cleaners long street",
-    "wash and fold cape town",
-    "airbnb laundry cape town",
-    "commercial laundry cape town",
-  ],
-
-  applicationName: "Diallo Laundry",
-
-  authors: [
-    {
-      name: "Diallo Laundry",
+    title: {
+      default:
+        "Diallo Laundry | Premium Laundry & Dry Cleaning in Cape Town",
+      template: "%s | Diallo Laundry",
     },
-  ],
-
-  creator: "Diallo Laundry",
-
-  publisher: "Diallo Laundry",
-
-  alternates: {
-    canonical: "/",
-  },
-
-  openGraph: {
-    type: "website",
-    locale: "en_ZA",
-    url: siteUrl,
-    siteName: "Diallo Laundry",
-
-    title:
-      "Premium Laundry & Dry Cleaning in Cape Town",
 
     description:
-      "Free pickup and delivery. Professional garment care for busy professionals, Airbnb hosts, businesses and families.",
+      "Premium laundry and dry cleaning services in Cape Town. Free pickup and delivery from Long Street and surrounding areas. Book online or WhatsApp Diallo Laundry today.",
 
-    images: [
+    keywords: [
+      "laundry cape town",
+      "dry cleaning cape town",
+      "laundry service cape town",
+      "dry cleaners long street",
+      "wash and fold cape town",
+      "airbnb laundry cape town",
+      "commercial laundry cape town",
+    ],
+
+    applicationName: "Diallo Laundry",
+
+    authors: [
       {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Diallo Laundry",
+        name: "Diallo Laundry",
       },
     ],
-  },
 
-  twitter: {
-    card: "summary_large_image",
+    creator: "Diallo Laundry",
 
-    title:
-      "Premium Laundry & Dry Cleaning in Cape Town",
+    publisher: "Diallo Laundry",
 
-    description:
-      "Free pickup and delivery across Cape Town.",
+    icons: {
+        icon: [
+          { url: "/favicon.ico" },
+          {
+            url: "/icon-192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            url: "/icon-512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+        ],
 
-    images: ["/images/og-image.jpeg"],
-  },
+        apple: [
+          {
+            url: "/apple-touch-icon.png",
+            sizes: "180x180",
+          },
+        ],
 
-  category: "Laundry Services",
+        shortcut: ["/favicon.ico"],
+      },
 
-  robots: {
-    index: true,
-    follow: true,
+    manifest: "/manifest.json",
 
-    googleBot: {
+    alternates: {
+      canonical: siteUrl,
+    },
+
+    openGraph: {
+      type: "website",
+      locale: "en_ZA",
+      url: siteUrl,
+      siteName: "Diallo Laundry",
+
+      title:
+        "Premium Laundry & Dry Cleaning in Cape Town",
+
+      description:
+        "Free pickup and delivery. Professional garment care for busy professionals, Airbnb hosts, businesses and families.",
+
+      images: [
+        {
+          url: `${siteUrl}/images/og-image.jpeg`,
+          width: 1200,
+          height: 630,
+          alt: "Diallo Laundry",
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+
+      title:
+        "Premium Laundry & Dry Cleaning in Cape Town",
+
+      description:
+        "Free pickup and delivery across Cape Town.",
+
+      images: [`${siteUrl}/images/og-image.jpg`],
+    },
+
+    category: "Laundry Services",
+
+    robots: {
       index: true,
       follow: true,
 
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+      googleBot: {
+        index: true,
+        follow: true,
 
-export const viewport: Viewport = {
-  themeColor: "#0F4C81",
-};
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+
+  export const viewport: Viewport = {
+    themeColor: "#0F4C81",
+    colorScheme: "light",
+  };
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -139,10 +167,20 @@ export default function RootLayout({
               "@type": "DryCleaningOrLaundry",
               "@id": "https://diallolaundry.co.za/#business",
               name: "Diallo Laundry",
+
               url: "https://diallolaundry.co.za",
-              image: "https://diallolaundry.co.za/images/hero-laundry.jpg",
+
+              hasMap: "https://maps.app.goo.gl/faSAuPKiqPVGEcDz7",
+
+              image: "https://diallolaundry.co.za/images/hero-laundry.png",
+
+              logo: "https://diallolaundry.co.za/images/logo.jpeg",
+
               telephone: "+27631872533",
+
               priceRange: "$$",
+
+              inLanguage: "en-ZA",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Africa Mall, 98 Long Street",
