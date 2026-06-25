@@ -146,8 +146,8 @@ export default function Header() {
                   rounded-full
                   bg-[rgb(var(--primary))]
                   px-5
-                  py-3
-                  text-sm
+                  py-4
+                  text-base
                   font-semibold
                 text-white
                   shadow-sm
