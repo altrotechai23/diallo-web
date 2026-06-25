@@ -157,9 +157,7 @@ const siteUrl = "https://diallolaundry.co.za";
         <GoogleTagManager gtmId="AW-18265948639" />
         <body
           className={`${inter.variable} ${poppins.variable}`}
-        >
-          
-          
+        >      
           {children}
           <WhatsAppFloat />
           {/* Local SEO Schema */}
