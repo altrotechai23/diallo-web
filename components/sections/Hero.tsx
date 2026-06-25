@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
+import WhatsAppButton from "../common/WhatsAppButton";
 
 export default function Hero() {
   return (
@@ -160,31 +161,7 @@ export default function Hero() {
             <ArrowRight size={18} />
           </Link>
 
-          <a
-            href="https://wa.me/27631872533?text=Hello%20Diallo%20Laundry,%20I%20would%20like%20to%20schedule%20a%20pickup."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex
-              items-center
-              gap-2
-              rounded-full
-              bg-[rgb(var(--secondary))]
-              px-8
-              py-4
-              text-base
-              font-semibold
-              text-white
-              shadow-xl
-              transition-all
-              hover:-translate-y-1
-              hover:shadow-2xl
-            "
-          >
-            <MessageCircle size={18} />
-
-            WhatsApp Us
-          </a>
+          <WhatsAppButton />
         </div>
 
         {/* Trust Line */}

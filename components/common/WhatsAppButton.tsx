@@ -22,15 +22,24 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       onClick={handleWhatsAppClick}
       className="
-        flex h-14 items-center justify-center gap-2
-        rounded-full
-        bg-[rgb(var(--secondary))]
-        text-sm font-semibold text-white
-        transition-all hover:opacity-90
-      "
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              bg-[rgb(var(--secondary))]
+              px-8
+              py-4
+              text-base
+              font-semibold
+              text-white
+              shadow-xl
+              transition-all
+              hover:-translate-y-1
+              hover:shadow-2xl
+            "
     >
-      <MessageCircle size={18} />
-      WhatsApp
+      <MessageCircle size={18} className="text-white"/>
+      <span className="text-white">WhatsApp Us</span>
     </Link>
   );
 }

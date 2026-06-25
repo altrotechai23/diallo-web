@@ -135,30 +135,7 @@ export default function Header() {
 
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="https://wa.me/27631872533"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  bg-[rgb(var(--secondary))]
-                  px-5
-                  py-3
-                  text-sm
-                  font-semibold
-                  text-white
-                  shadow-sm
-                  transition-all
-                  hover:-translate-y-0.5
-                  hover:shadow-md
-                "
-              >
-                <MessageCircle size={18} className="text-white"/>
-                <span className="text-white">WhatsApp</span>
-              </a>
+              <WhatsAppButton />
 
               <Link
                 href="/book"
