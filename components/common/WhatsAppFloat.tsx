@@ -2,12 +2,21 @@
 
 import { MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
-
+import { sendGTMEvent } from '@next/third-parties/google';
 const PHONE = "27631872533";
 
 export default function WhatsAppFloat() {
   function handleClick() {
     trackWhatsAppClick("floating_button");
+
+    // Fired directly to your layout's Google Tag Manager layer
+    sendGTMEvent({
+      event: 'conversion',
+      value: {
+        // Your Google Ads Conversion ID configuration
+        'send_to': 'AW-18265948639/whatsapp_click', 
+      }
+    });
 
     const message =
       "Hello Diallo Laundry, I would like to enquire about your laundry services.";
