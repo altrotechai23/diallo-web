@@ -11,6 +11,7 @@ import {
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
+import WhatsAppButton from "../common/WhatsAppButton";
 
 const navigation = [
   { name: "Services", href: "/services" },
@@ -291,20 +292,7 @@ export default function Header() {
               </Link>
 
               <div className="grid grid-cols-2 gap-3">
-                <a
-                  href="https://wa.me/27631872533"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    flex h-14 items-center justify-center gap-2
-                    rounded-full
-                    bg-[rgb(var(--secondary))]
-                    text-sm font-semibold text-white
-                  "
-                >
-                  <MessageCircle size={18} />
-                  WhatsApp
-                </a>
+                <WhatsAppButton/>
 
                 <a
                   href="tel:+27631872533"
