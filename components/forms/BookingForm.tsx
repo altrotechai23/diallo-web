@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { sendGTMEvent } from '@next/third-parties/google';
 const services = [
   "Dry Cleaning",
   "Wash & Fold",
@@ -46,6 +46,14 @@ export default function BookingForm() {
             Additional Notes:
             ${notes}
          `;
+    // 2. SUCCESSFUL TRIGGER: Only fire the Google Ad payload here!
+    sendGTMEvent({
+          event: 'conversion',
+          value: {
+            // Keep your base layout ID and append the new specific form conversion label
+            'send_to': 'AW-18265948639/submit_lead_form',
+          }
+    });
 
     const whatsappUrl =
       `https://wa.me/27631872533?text=${encodeURIComponent(
