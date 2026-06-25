@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from 'next/script';
 import "./globals.css";
 import WhatsAppFloat from "@/components/common/WhatsAppFloat";
@@ -141,111 +141,114 @@ const siteUrl = "https://diallolaundry.co.za";
     colorScheme: "light",
   };
 
-type RootLayoutProps = {
-  children: React.ReactNode;
-};
+  type RootLayoutProps = {
+    children: React.ReactNode;
+  };
 
-export default function RootLayout({
-  children,
-}: RootLayoutProps) {
-  return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
-      <body
-        className={`${inter.variable} ${poppins.variable}`}
+  export default function RootLayout({
+    children,
+  }: RootLayoutProps) {
+    return (
+      <html
+        lang="en"
+        suppressHydrationWarning
       >
-        {children}
-        <WhatsAppFloat />
-        {/* Local SEO Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "DryCleaningOrLaundry",
-              "@id": "https://diallolaundry.co.za/#business",
-              name: "Diallo Laundry",
+        <body
+          className={`${inter.variable} ${poppins.variable}`}
+        >
+          {/* 2. Google Tag Manager/Google Ads Tag goes at the very top of the html tag */}
+          <GoogleTagManager gtmId="AW-18265948639" />
+          
+          {children}
+          <WhatsAppFloat />
+          {/* Local SEO Schema */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "DryCleaningOrLaundry",
+                "@id": "https://diallolaundry.co.za/#business",
+                name: "Diallo Laundry",
 
-              url: "https://diallolaundry.co.za",
+                url: "https://diallolaundry.co.za",
 
-              hasMap: "https://maps.app.goo.gl/faSAuPKiqPVGEcDz7",
+                hasMap: "https://maps.app.goo.gl/faSAuPKiqPVGEcDz7",
 
-              image: "https://diallolaundry.co.za/images/hero-laundry.png",
+                image: "https://diallolaundry.co.za/images/hero-laundry.png",
 
-              logo: "https://diallolaundry.co.za/images/logo.jpeg",
+                logo: "https://diallolaundry.co.za/images/logo.jpeg",
 
-              telephone: "+27631872533",
+                telephone: "+27631872533",
 
-              priceRange: "$$",
+                priceRange: "$$",
 
-              inLanguage: "en-ZA",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Africa Mall, 98 Long Street",
-                addressLocality: "Cape Town",
-                postalCode: "8001",
-                addressCountry: "ZA",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: "-33.9249",
-                longitude: "18.4241",
-              },
-              openingHoursSpecification: [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday",
-                  ],
-                  opens: "08:00",
-                  closes: "20:00",
+                inLanguage: "en-ZA",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Africa Mall, 98 Long Street",
+                  addressLocality: "Cape Town",
+                  postalCode: "8001",
+                  addressCountry: "ZA",
                 },
-              ],
-              areaServed: [
-                "Long Street",
-                "Cape Town CBD",
-                "Sea Point",
-                "Green Point",
-                "Gardens",
-                "Woodstock",
-              ],
-              sameAs: [
-                "https://maps.google.com/?cid=8066815179643636288",
-              ],
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5",
-                reviewCount: "1",
-              },
-            }),
-          }}
-        />
-        {/* 1. Load the external Google Tag script asynchronously */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18265948639"
-          strategy="afterInteractive"
-        />
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: "-33.9249",
+                  longitude: "18.4241",
+                },
+                openingHoursSpecification: [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday",
+                    ],
+                    opens: "08:00",
+                    closes: "20:00",
+                  },
+                ],
+                areaServed: [
+                  "Long Street",
+                  "Cape Town CBD",
+                  "Sea Point",
+                  "Green Point",
+                  "Gardens",
+                  "Woodstock",
+                ],
+                sameAs: [
+                  "https://maps.google.com/?cid=8066815179643636288",
+                ],
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: "5",
+                  reviewCount: "1",
+                },
+              }),
+            }}
+          />
+          {/* 1. Load the external Google Tag script asynchronously */}
+          {/* <Script
+            src="https://www.googletagmanager.com/gtag/js?id=AW-18265948639"
+            strategy="afterInteractive"
+          /> */}
 
-        {/* 2. Initialize the Google Ads configuration */}
-        <Script id="google-ads-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+          {/* 2. Initialize the Google Ads configuration */}
+          {/* <Script id="google-ads-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-            gtag('config', 'AW-18265948639');
-          `}
-        </Script>
-        <GoogleAnalytics gaId="G-46VZ6EE43Q"  />
-      </body>
-    </html>
-  );
-}
+              gtag('config', 'AW-18265948639');
+            `}
+          </Script> */}
+          <GoogleAnalytics gaId="G-46VZ6EE43Q"  />
+        </body>
+      </html>
+    );
+  }
