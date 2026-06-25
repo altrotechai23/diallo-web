@@ -13,15 +13,71 @@ const services = [
 export default function BookingForm() {
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(
-    e: React.FormEvent<HTMLFormElement>
-  ) {
-    e.preventDefault();
+  // async function handleSubmit(
+  //   e: React.FormEvent<HTMLFormElement>
+  // ) {
+  //   e.preventDefault();
 
+  //   setLoading(true);
+
+  //   const form = new FormData(e.currentTarget);
+
+  //   const name = form.get("name");
+  //   const phone = form.get("phone");
+  //   const service = form.get("service");
+  //   const address = form.get("address");
+  //   const date = form.get("date");
+  //   const notes = form.get("notes");
+
+  //   const message = `
+  //           Hello Diallo Laundry,
+
+  //           Name: ${name}
+  //           Phone: ${phone}
+
+  //           Service: ${service}
+
+  //           Pickup Address:
+  //           ${address}
+
+  //           Preferred Date:
+  //           ${date}
+
+  //           Additional Notes:
+  //           ${notes}
+  //        `;
+  //   // 2. SUCCESSFUL TRIGGER: Only fire the Google Ad payload here!
+  //   sendGTMEvent({
+  //         event: 'conversion',
+  //         value: {
+  //           // Keep your base layout ID and append the new specific form conversion label
+  //           'send_to': 'AW-18265948639/submit_lead_form',
+  //         }
+  //   });
+
+  //   const whatsappUrl =
+  //     `https://wa.me/27631872533?text=${encodeURIComponent(
+  //       message
+  //     )}`;
+
+  //   window.gtag?.("event", "generate_lead", {
+  //   event_category: "booking",
+  //   event_label: service,
+  //   value: 1,
+  //   });
+
+  //   window.open(whatsappUrl, "_blank");
+
+  //   setLoading(false);
+
+  //   e.currentTarget.reset();
+  // }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setLoading(true);
 
     const form = new FormData(e.currentTarget);
-
     const name = form.get("name");
     const phone = form.get("phone");
     const service = form.get("service");
@@ -46,30 +102,30 @@ export default function BookingForm() {
             Additional Notes:
             ${notes}
          `;
-    // 2. SUCCESSFUL TRIGGER: Only fire the Google Ad payload here!
+
+    // 1. PRIMARY GOOGLE ADS CONVERSION TRIGGER
+    // Note: Make sure 'submit_lead_form' matches your actual string code from Google Ads Console!
     sendGTMEvent({
-          event: 'conversion',
-          value: {
-            // Keep your base layout ID and append the new specific form conversion label
-            'send_to': 'AW-18265948639/submit_lead_form',
-          }
+      event: 'conversion',
+      value: {
+        'send_to': 'AW-18265948639/submit_lead_form', 
+      }
     });
 
-    const whatsappUrl =
-      `https://wa.me/27631872533?text=${encodeURIComponent(
-        message
-      )}`;
-
-    window.gtag?.("event", "generate_lead", {
-    event_category: "booking",
-    event_label: service,
-    value: 1,
+    // 2. CLEAN GOOGLE ANALYTICS REPLACEMENT (Replaces the broken window.gtag call)
+    sendGTMEvent({
+      event: 'generate_lead',
+      event_category: 'booking',
+      event_label: service?.toString() || 'Unknown',
+      value: 1,
     });
 
+    const whatsappUrl = `https://wa.me/27631872533?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp secure link
     window.open(whatsappUrl, "_blank");
 
     setLoading(false);
-
     e.currentTarget.reset();
   }
 
