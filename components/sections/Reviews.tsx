@@ -19,8 +19,7 @@ export default function Reviews() {
 
           <h2 className="heading-lg mt-4">
             <span
-            className="
-              bg-gradient-to-r
+            className="bg-gradient-to-r
               from-[#41BE23]
               to-[#00A3FF]
               bg-clip-text

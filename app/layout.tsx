@@ -153,11 +153,12 @@ const siteUrl = "https://diallolaundry.co.za";
         lang="en"
         suppressHydrationWarning
       >
+        {/* 2. Google Tag Manager/Google Ads Tag goes at the very top of the html tag */}
+        <GoogleTagManager gtmId="AW-18265948639" />
         <body
           className={`${inter.variable} ${poppins.variable}`}
         >
-          {/* 2. Google Tag Manager/Google Ads Tag goes at the very top of the html tag */}
-          <GoogleTagManager gtmId="AW-18265948639" />
+          
           
           {children}
           <WhatsAppFloat />
