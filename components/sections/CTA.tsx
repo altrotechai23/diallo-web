@@ -89,15 +89,15 @@ export default function CTA() {
                 px-8
                 py-4
                 font-semibold
-                text-[rgb(var(--primary))]
+                text-green
                 transition
                 hover:-translate-y-0.5
               "
             >
-              Schedule Pickup
+              <span className="text-green">Schedule Pickup</span>
             </Link>
 
-            <a
+            <Link
               href="https://wa.me/27631872533"
               target="_blank"
               rel="noopener noreferrer"
@@ -112,13 +112,14 @@ export default function CTA() {
                 py-4
                 font-semibold
                 transition
+                text-primary
                 hover:bg-white/10
               "
             >
               <MessageCircle size={18} />
 
               WhatsApp Us
-            </a>
+            </Link>
 
             <a
               href="tel:+27631872533"

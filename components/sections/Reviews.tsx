@@ -10,7 +10,7 @@ const reviews = [
 
 export default function Reviews() {
   return (
-    <section className="section-muted">
+    <section className="section-muted py-20">
       <div className="container-custom">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[rgb(var(--primary))]">

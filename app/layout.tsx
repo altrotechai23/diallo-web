@@ -40,6 +40,7 @@ const siteUrl = "https://diallolaundry.co.za";
       "wash and fold cape town",
       "airbnb laundry cape town",
       "commercial laundry cape town",
+      "wedding dress dry cleaning near me"
     ],
 
     applicationName: "Diallo Laundry",
@@ -230,22 +231,7 @@ const siteUrl = "https://diallolaundry.co.za";
               }),
             }}
           />
-          {/* 1. Load the external Google Tag script asynchronously */}
-          {/* <Script
-            src="https://www.googletagmanager.com/gtag/js?id=AW-18265948639"
-            strategy="afterInteractive"
-          /> */}
-
-          {/* 2. Initialize the Google Ads configuration */}
-          {/* <Script id="google-ads-init" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'AW-18265948639');
-            `}
-          </Script> */}
+          
           <GoogleAnalytics gaId="G-46VZ6EE43Q"  />
         </body>
       </html>
