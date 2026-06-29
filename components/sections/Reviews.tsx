@@ -108,12 +108,12 @@ export default function Reviews() {
         </div>
  
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className="mb-12 text-center">
           <a
             href="https://g.page/r/CUBKBWI3Cv5vEBM/review"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary"
+            className="btn-primary my-10"
           >
             Leave a Google Review
           </a>

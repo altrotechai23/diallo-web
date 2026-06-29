@@ -30,7 +30,7 @@ const areas = [
 
 export default function ServiceAreas() {
   return (
-    <section id="areas">
+    <section id="areas" className="pt-20">
       <div className="container-custom">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
