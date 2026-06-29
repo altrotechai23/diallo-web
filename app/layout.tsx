@@ -40,7 +40,8 @@ const siteUrl = "https://diallolaundry.co.za";
       "wash and fold cape town",
       "airbnb laundry cape town",
       "commercial laundry cape town",
-      "wedding dress dry cleaning near me"
+      "wedding dress dry cleaning near me",
+      "same day dry cleaning cape town"
     ],
 
     applicationName: "Diallo Laundry",
